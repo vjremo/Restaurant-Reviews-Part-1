@@ -179,6 +179,7 @@ createRestaurantHTML = (restaurant) => {
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
+  li.tabIndex ='3'
 
   return li
 }
@@ -209,3 +210,8 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   });
 } */
 
+navigator.serviceWorker.register('/js/sw.js').then(function () {
+  console.log('Registration worked!!');
+}).catch(function () {
+  console.log('Registration failed');
+});
