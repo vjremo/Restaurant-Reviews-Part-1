@@ -20,7 +20,6 @@ const filesToCache = [
   ];
 
 self.addEventListener('install', function(event){
-    console.log('install done');
     event.waitUntil(
         caches.open('v1').then(function(cache){
             return cache.addAll(filesToCache);
@@ -30,18 +29,15 @@ self.addEventListener('install', function(event){
 });
 
 self.addEventListener('fetch', function(event){
-    console.log('yo'+event.request);
     event.respondWith(
         caches.match(event.request).then(function (response) {
             if(response){
-                console.log('Found ', e.request ,' in cache');
                 return response;
             }else{
-                console.log('Could not find ', e.request ,' in cache, fetching now!');
                 return fetch(event.request).then(function(response){
                     const clonedResponse = response.clone();
                     caches.open('v1').then(function (cache) {
-                        cache.put(e.request, clonedResponse);
+                        cache.put(event.request, clonedResponse);
                     })
                     return response;
                 })
