@@ -3,10 +3,10 @@
 
 ## Table of contents
 
-*[Overview](#overview)
-*[Features added](#features-added)
-*[Instructions](#instructions)
-*[References](*references)
+* [Overview](#overview)
+* [Features added](#features-added)
+* [Instructions](#instructions)
+* [References](#references)
 
 ## Overview
 
